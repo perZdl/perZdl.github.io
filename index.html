@@ -8,6 +8,7 @@
 <div id="cnt">
 	<div v-if="ok"
     v-finger:pinch="pinch"
+    v-finger:pressMove="pressMove"
 
   >
 		<div>the element that you want to bind event</div>
@@ -36,17 +37,17 @@
       pinch: function(evt) { 
         console.log(evt.scale);
         console.log('onPinch');
-        console.log(evt.touch); 
+        console.log(evt); 
       },
       // rotate: function(evt) {
       //   // console.log(evt.angle);
       //   // console.log('onRotate'); 
       // },
-      // pressMove: function(num, evt) {
-      //   // console.log(evt.deltaX);
-      //   // console.log(evt.deltaY);
-      //   // console.log('onPressMove with params:' + num); 
-      // },
+      pressMove: function(num, evt) {
+        console.log(evt.deltaX);
+        console.log(evt.deltaY);
+        console.log('onPressMove with params:' + num); 
+      },
       // multipointEnd: function() { console.log('onMultipointEnd'); },
       // doubleTap: function() { console.log('onDoubleTap'); },
       // singleTap: function () { console.log('onSingleTap'); },
