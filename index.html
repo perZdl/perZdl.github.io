@@ -9,16 +9,19 @@
 	<div>><img
     v-finger:pinch="pinch"
     v-finger:pressMove="pressMove"
-     src="http://alloyteam.github.io/AlloyFinger/asset/test.png"></div>
+     src="http://alloyteam.github.io/AlloyFinger/asset/test.png" ref="img"></div>
 </div>
 <script type="text/javascript" src="./vue.min.js"></script>
 <script type="text/javascript" src="./alloy_finger.js"></script>
 <script type="text/javascript" src="./alloy_finger.vue.js"></script>
+<script type="text/javascript" src="./transform.vue.js"></script>
+<script type="text/javascript" src="./transform.js"></script>
 <script type="text/javascript">
 	Vue.use(AlloyFingerVue);
   var data = {
     ok: true
   };
+  Vue.use(Transform);
 
 	var h = new Vue({
 		el: '#cnt',
@@ -32,6 +35,9 @@
    //      console.log('onSwipe');
    //    },
       pinch: function(evt) { 
+        let img = this.$refs.img;
+
+        img.scaleX = img.scaleY = this.initScale * evt.zoom;
         console.log(evt.scale);
         console.log(evt.zoom);
 
@@ -47,6 +53,15 @@
         console.log(evt.deltaY);
         console.log('onPressMove with params:' + num); 
       },
+      multipointStart: function () {
+          let img = this.$refs.img; // 图片的对象
+          this.initScale = img.scaleX;
+      },
+
+    rotate:function(evt){
+       let img = this.$refs.img; // 图片的对象
+        img.rotateZ += evt.angle;
+    },
       // multipointEnd: function() { console.log('onMultipointEnd'); },
       // doubleTap: function() { console.log('onDoubleTap'); },
       // singleTap: function () { console.log('onSingleTap'); },
