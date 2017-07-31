@@ -36,6 +36,12 @@
    //    },
       pinch: function(evt) { 
         let img = this.$refs.img;
+        let width = img.width;
+        let height = img.height;
+        let newWidth =width * evt.zoom;
+        let newHeight =height* evt.zoom;
+        img.width = newWidth;
+        img.height = newHeight;
 
         img.scaleX = img.scaleY = this.initScale * evt.zoom;
         console.log(evt.scale);
