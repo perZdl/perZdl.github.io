@@ -71,7 +71,10 @@
 
     rotate:function(evt){
        let img = this.$refs.img; // 图片的对象
-        img.rotateZ += evt.angle;
+       img.style.WebkitTransform="rotateZ("+evt.angle+","+evt.angle+")";
+      img.style.transform="rotateZ("+evt.angle+","+evt.angle+")";
+        // img.rotateZ += evt.angle;
+        // img.rotateZ += evt.angle;
     },
       // multipointEnd: function() { console.log('onMultipointEnd'); },
       // doubleTap: function() { console.log('onDoubleTap'); },
