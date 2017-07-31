@@ -74,6 +74,8 @@
       rotate:function(evt){
          let img = this.$refs.img; // 图片的对象
          console.log(evt.angle);
+         console.log(img.style.WebkitTransform);
+         
          img.style.WebkitTransform="rotateZ("+evt.angle+")";
           img.style.transform="rotateZ("+evt.angle+")";
           // img.rotateZ += evt.angle;
