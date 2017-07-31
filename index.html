@@ -6,12 +6,11 @@
 </head>
 <body>
 <div id="cnt">
-	<div v-if="ok"
+	<div>
+		<div  
     v-finger:pinch="pinch"
     v-finger:pressMove="pressMove"
-
-  >
-		<div>the element that you want to bind event</div>
+    ><img src="http://alloyteam.github.io/AlloyFinger/asset/test.png"></div>
 	</div>
 </div>
 <script type="text/javascript" src="./vue.min.js"></script>
@@ -36,6 +35,8 @@
    //    },
       pinch: function(evt) { 
         console.log(evt.scale);
+        console.log(evt.zoom);
+
         console.log('onPinch');
         console.log(evt); 
       },
