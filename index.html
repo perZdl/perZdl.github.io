@@ -22,7 +22,7 @@
     ok: true,
     initScale: 1
   };
-  Vue.use(Transform);
+  Vue.use(vueTransform);
 
 	var h = new Vue({
 		el: '#cnt',
@@ -37,6 +37,7 @@
    //    },
       pinch: function(evt) { 
         let img = this.$refs.img;
+        Transform(evt.target);
         // let width = img.width;
         // let height = img.height;
         // let newWidth =width * evt.zoom;
@@ -61,8 +62,8 @@
         console.log('onPressMove with params:' + num); 
       },
       multipointStart: function () {
-
           let img = this.$refs.img; // 图片的对象
+          Transform(img);
           this.initScale = img.scaleX;
           console.log(this.initScale);
       },
