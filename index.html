@@ -37,14 +37,16 @@
    //    },
       pinch: function(evt) { 
         let img = this.$refs.img;
-        let width = img.width;
-        let height = img.height;
-        let newWidth =width * evt.zoom;
-        let newHeight =height* evt.zoom;
-        img.width = newWidth;
-        img.height = newHeight;
+        // let width = img.width;
+        // let height = img.height;
+        // let newWidth =width * evt.zoom;
+        // let newHeight =height* evt.zoom;
+        // img.width = newWidth;
+        // img.height = newHeight;
 
-        img.scaleX = img.scaleY = this.initScale * evt.zoom;
+        img.style.WebkitTransform="scale("+evt.zoom+","+evt.zoom+")";
+
+        // img.scaleX = img.scaleY = this.initScale * ;
         console.log(img.scaleX);
         console.log(evt.zoom);
 
