@@ -14,15 +14,15 @@
 <script type="text/javascript" src="./vue.min.js"></script>
 <script type="text/javascript" src="./alloy_finger.js"></script>
 <script type="text/javascript" src="./alloy_finger.vue.js"></script>
-<script type="text/javascript" src="./transform.vue.js"></script>
 <script type="text/javascript" src="./transform.js"></script>
+<script type="text/javascript" src="./transform.vue.js"></script>
 <script type="text/javascript">
 	Vue.use(AlloyFingerVue);
   var data = {
     ok: true,
     initScale: 1
   };
-  Vue.use(vueTransform);
+  // Vue.use(vueTransform);
 
 	var h = new Vue({
 		el: '#cnt',
@@ -37,13 +37,12 @@
    //    },
       pinch: function(evt) { 
         let img = this.$refs.img;
-        Transform(evt.target);
-        // let width = img.width;
-        // let height = img.height;
-        // let newWidth =width * evt.zoom;
-        // let newHeight =height* evt.zoom;
-        // img.width = newWidth;
-        // img.height = newHeight;
+        let width = img.width;
+        let height = img.height;
+        let newWidth =width * evt.zoom;
+        let newHeight =height* evt.zoom;
+        img.width = newWidth;
+        img.height = newHeight;
 
         img.scaleX = img.scaleY = this.initScale * evt.zoom;
         console.log(img.scaleX);
